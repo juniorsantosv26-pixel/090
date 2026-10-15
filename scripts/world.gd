@@ -391,7 +391,7 @@ func _create_enemies() -> void:
     for p in positions:
         var zombie = ENEMY_SCRIPT.new()
         zombie.target = player
-        zombie.global_position = Vector3(p.x, _height_at(p.x, p.y) + 1.2, p.y)
+        zombie.position = Vector3(p.x, _height_at(p.x, p.y) + 1.2, p.y)
         add_child(zombie)
         zombie.defeated.connect(_on_enemy_defeated)
         enemies.append(zombie)
