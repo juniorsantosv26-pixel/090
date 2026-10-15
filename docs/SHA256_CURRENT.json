@@ -1,0 +1,206 @@
+{
+  ".github/workflows/android-apk.yml": {
+    "bytes": 4770,
+    "sha256": "e977e2862d8702243f79da258bb567fa03c5674c7817e014c7e409e22b8ea729"
+  },
+  ".gitignore": {
+    "bytes": 56,
+    "sha256": "449fd5f180d4baff3becd9709ef0eeb4eb474be0a9fb6b138c937fc2e57c161c"
+  },
+  "CODESPACES_COMECAR_AQUI.md": {
+    "bytes": 1570,
+    "sha256": "4b3d61fd46a19a47d21ce575c01d8a91bb1f36e8e3b8c54e64f11dc742921946"
+  },
+  "INSTALL_CODESPACES.sh": {
+    "bytes": 2177,
+    "sha256": "bdaca71c55abcc8c02bc5ff2dd66b0b46daeb8ef386f627d38ac093d6b5fc851"
+  },
+  "README_AFTERFALL.md": {
+    "bytes": 1239,
+    "sha256": "3fbc7c9cd98a411ed1426c7f73eee59296b9ab75474b19ae3b3405026beb7f68"
+  },
+  "README_APK.md": {
+    "bytes": 2775,
+    "sha256": "546d5d51d09cd079afd25de917ddd0dd627d4a77473ed9d92d3de7a5a68ac5e2"
+  },
+  "assets/icon192.png": {
+    "bytes": 1428,
+    "sha256": "65cd76b124808c101f0e593e2907148307e1f256e5036e688ca442edb8a4ed64"
+  },
+  "assets/icon432.png": {
+    "bytes": 2943,
+    "sha256": "b805a1477a7b71d99dbc36e1cf2d35293beea36853e9a87159bc369c86c736e7"
+  },
+  "assets/textures/asphalt.png": {
+    "bytes": 201197,
+    "sha256": "2757df584e42ccac0381b5f2fad5a6edbffe900a0b30e6f7eeb5140d13ae1066"
+  },
+  "assets/textures/asphalt_n.png": {
+    "bytes": 233070,
+    "sha256": "abe71828d3013abb9f71534b21aa01bc763b39c64004eb175df9b277a6d1e1e5"
+  },
+  "assets/textures/bark.png": {
+    "bytes": 174591,
+    "sha256": "da4f76eaa1f86f7adb798f233a78773213e34733332090b994f23395b88a1ce7"
+  },
+  "assets/textures/bark_n.png": {
+    "bytes": 163019,
+    "sha256": "2cecd3d065922d2a5cac9fce143e61eaaf5b19f790ba124928a2805529a04826"
+  },
+  "assets/textures/concrete.png": {
+    "bytes": 232992,
+    "sha256": "853a22d57280b34d3abf5f87230574800ea9cd5342e4c22a989aed2e85669ea2"
+  },
+  "assets/textures/concrete_n.png": {
+    "bytes": 224491,
+    "sha256": "d7ad9fc018b14065d5227232e1b8c59ccd274da86ad1b187d7bf0c4ee8e7a9b2"
+  },
+  "assets/textures/fabric.png": {
+    "bytes": 209413,
+    "sha256": "ed4b6281b79b6b09438fdfec41182047ee4b0fc7f36ac772ec2a3a97889f5ecd"
+  },
+  "assets/textures/fabric_n.png": {
+    "bytes": 199236,
+    "sha256": "c6fca575be07f1d7b202108e096db61d7bb466b55c9c422f18d01f2614e7923d"
+  },
+  "assets/textures/foliage.png": {
+    "bytes": 220744,
+    "sha256": "fc5e58877ea6ff3baee61ab1db969bd9503c328141eb01c0d899965331e799ac"
+  },
+  "assets/textures/foliage_n.png": {
+    "bytes": 207107,
+    "sha256": "418dee731111b93218911737fd519aa5c67af917916110202c43093a18a0abf1"
+  },
+  "assets/textures/grass_blade.png": {
+    "bytes": 4626,
+    "sha256": "e6400b7083ea43f0589f3711aaa266060ae7cd66675563d82b049449a0133694"
+  },
+  "assets/textures/ground.png": {
+    "bytes": 219125,
+    "sha256": "0f4c2cd697ccdb31fa4bbd6e315e8955afb0c6e08b01e550625565bcf9d0f73a"
+  },
+  "assets/textures/ground_n.png": {
+    "bytes": 206509,
+    "sha256": "418f2b92850026ee974530453356dfaf8155085927653fd8e58f85f026a37ef5"
+  },
+  "assets/textures/metal.png": {
+    "bytes": 230494,
+    "sha256": "3caf1af514cce063a7bc63ed0e57f81d4ca31e3025ae8b9641e3be57edc5fd85"
+  },
+  "assets/textures/metal_n.png": {
+    "bytes": 210067,
+    "sha256": "76d11511500f636256fc5d70ed85430dc6174868957975d60bf0929e324f7c40"
+  },
+  "assets/textures/mud.png": {
+    "bytes": 230351,
+    "sha256": "48b956366b7f98d47eb699dd92425ca5f874fadb69202b40943d6a48308dddb7"
+  },
+  "assets/textures/mud_n.png": {
+    "bytes": 217754,
+    "sha256": "dcc86103844368105aff31a2c8251435aa406473c24f1c87a9e1d8fe4028ae8f"
+  },
+  "assets/textures/plaster.png": {
+    "bytes": 247387,
+    "sha256": "d9d7f10e1ad2044ffd03a963c948afb51f4038e086f45e657cb6f45d3bd90ce1"
+  },
+  "assets/textures/plaster_n.png": {
+    "bytes": 246523,
+    "sha256": "3aa87612f36c81cebbc1ab2e3d73344bba18f6934b0d65424909de065df9a4b4"
+  },
+  "assets/textures/shrub.png": {
+    "bytes": 14988,
+    "sha256": "9467b2a26a116870eae6970cb50dd54be1166b6c52d7214e95e03aea20f65654"
+  },
+  "assets/textures/skin.png": {
+    "bytes": 267960,
+    "sha256": "0667919bf0ad47f689035824fda92815593c9753ee4ad21ce9518cc8ee4756df"
+  },
+  "assets/textures/skin_n.png": {
+    "bytes": 267970,
+    "sha256": "9a92d7f323d627e4a667c35153916b7213405ef9574615b75bab2cb05a676c16"
+  },
+  "assets/textures/stone.png": {
+    "bytes": 244796,
+    "sha256": "f14e1f1a2a3b101545c4ca418c1d7ae095c57170ed4ac3ffd5ed2a41b5948bef"
+  },
+  "assets/textures/stone_n.png": {
+    "bytes": 241576,
+    "sha256": "6806504966f8e31888220b16e37540c6d33d85fcc87532e7130c771a51e70339"
+  },
+  "assets/textures/wood.png": {
+    "bytes": 158369,
+    "sha256": "d19de13cf1e47f2be4ce23f0c9d48ad35c584d9efc4ed9ab20525c36e5ad1cdb"
+  },
+  "assets/textures/wood_n.png": {
+    "bytes": 141888,
+    "sha256": "5dd3c62f150baf6e3a6112daaca88fc169531eb8deb9aa1726111648394abf36"
+  },
+  "docs/BUILD_RECORD.json": {
+    "bytes": 144,
+    "sha256": "0ef00948c45bdce849e264b2083fab54e23ed1f21f8539a444a0fbd9c9e9db37"
+  },
+  "docs/REFERENCE_AUDIT.json": {
+    "bytes": 3023,
+    "sha256": "aa058b67fc06a1eda8bfcb50139a50ccf861437495c134835010169ea5b4c96a"
+  },
+  "export_presets.cfg": {
+    "bytes": 1522,
+    "sha256": "d5300d205fb24f891af049f86f1f913bcc8d5729dfaf69f5f4918e00fd79ca41"
+  },
+  "project.godot": {
+    "bytes": 912,
+    "sha256": "48c52b5dc5e475ee50f174b56c66272bc185296f91f0ea24b6c1081a09f0c03b"
+  },
+  "scenes/main.tscn": {
+    "bytes": 898,
+    "sha256": "81d3a5278d890573db17e760013a5aa61ba491602c58a7b8d8a6fcce25fd2cdd"
+  },
+  "scripts/enemy.gd": {
+    "bytes": 4086,
+    "sha256": "cad7dee2d16569fe5addb8972eddc59e49327b7c74722fa5074cca3e4d652953"
+  },
+  "scripts/hud.gd": {
+    "bytes": 5675,
+    "sha256": "51885b74838a605b6c69ec890c20e2108f079a1862e7518f5fceecf7c922134c"
+  },
+  "scripts/materials.gd": {
+    "bytes": 1756,
+    "sha256": "46ec852304912f366705b47a4733ef4e5281a96c936a230f3c5ce93b88841aa5"
+  },
+  "scripts/pickup.gd": {
+    "bytes": 1679,
+    "sha256": "eb6fcf23393a02c5a8710c5984ddf81934a3fb49a0a206b935f19c0a0a882b74"
+  },
+  "scripts/player.gd": {
+    "bytes": 8055,
+    "sha256": "dc3a8251ce8b37f7865a9ec318693319528cee6259bff3ce0d02806043bf0d4f"
+  },
+  "scripts/world.gd": {
+    "bytes": 25330,
+    "sha256": "61dd8b0d011251529c55e64c95d7c9aa18ac0476e29e1a5bf13b3c3c5eda484a"
+  },
+  "tests/build_preflight.py": {
+    "bytes": 1754,
+    "sha256": "d6e013bce3fce69252dd78298ad32a7c1486e436c72b876f433334587c709e7b"
+  },
+  "tests/integrity_check.py": {
+    "bytes": 3601,
+    "sha256": "9796c690485fef6528911f14b19c6612c91f347e8a3f68a14161016a96eebeb1"
+  },
+  "tests/runtime_smoke.gd": {
+    "bytes": 920,
+    "sha256": "f81cc6f8e7fbe47fe5bb2c0bf831c6bb88cd6409ed298ffd61cb0570fda28670"
+  },
+  "tests/smoke_check.py": {
+    "bytes": 262,
+    "sha256": "b752cd56157a50af1e70a13540a3104fdf3e8a206868deb67fce700a9359be85"
+  },
+  "tools/make_textures.py": {
+    "bytes": 4324,
+    "sha256": "1dbd82f3375f6d1b046cb06a5ca8085e121e84620fbf18eb2b9926182c7e01ae"
+  },
+  "tools/upgrade_world.py": {
+    "bytes": 12092,
+    "sha256": "ba44f4ab98eb8fb7f2705338c5e41c7a2392440d82fc74bad80ad457faa52ad8"
+  }
+}

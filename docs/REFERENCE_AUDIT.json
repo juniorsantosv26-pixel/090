@@ -1,0 +1,126 @@
+{
+  "reference": {
+    "name": "Last Day on Earth: Survival",
+    "version": "1.36.1",
+    "archive_format": "7z split (2 parts)",
+    "engine": "Unity",
+    "unity_version": "2022.3.45f1",
+    "ownership": "proprietary reference only; original assets not included"
+  },
+  "source_parts": [
+    {
+      "filename": "Last+Day+on+Earth_+Survival_1.36.1_APKPure.7z.t0.001",
+      "size_bytes": 524288000,
+      "sha256": "98f2e708fe4dc5c1079555b4601e0b5074d032f487253bd009354bfda6c67e83"
+    },
+    {
+      "filename": "Last+Day+on+Earth_+Survival_1.36.1_APKPure.7z.t0.002",
+      "size_bytes": 513656161,
+      "sha256": "5e60c3aa32d634b556bff8827c396ce7804b7bb74ff2a7196466f06ba4224a0c"
+    }
+  ],
+  "xapk": {
+    "package_name": "zombie.survival.craft.z",
+    "version_code": "600806",
+    "version_name": "1.36.1",
+    "min_sdk": "24",
+    "target_sdk": "34",
+    "split_apks": [
+      {
+        "name": "zombie.survival.craft.z.apk",
+        "size_bytes": 51260138
+      },
+      {
+        "name": "config.armeabi_v7a.apk",
+        "size_bytes": 44989129
+      },
+      {
+        "name": "UnityDataAssetPack.apk",
+        "size_bytes": 941639524
+      }
+    ]
+  },
+  "source_has_internet_permission": true,
+  "subpackages": {
+    "zombie.survival.craft.z.apk": {
+      "entries": 2730,
+      "uncompressed_size_bytes": 136035368
+    },
+    "config.armeabi_v7a.apk": {
+      "entries": 35,
+      "uncompressed_size_bytes": 133195524,
+      "abi_folders": [
+        "armeabi-v7a"
+      ],
+      "native_libraries": 30
+    },
+    "UnityDataAssetPack.apk": {
+      "entries": 323,
+      "uncompressed_size_bytes": 941606843,
+      "unity_bundle_count": 154,
+      "scene_bundle_count": 13,
+      "subsystems_with_named_bundles": [
+        "character_animations",
+        "characters",
+        "gameplay_vfx",
+        "minimap",
+        "resources",
+        "shaders",
+        "vehicles",
+        "weather",
+        "world_map"
+      ],
+      "largest_bundles": [
+        {
+          "label": "ui",
+          "size_mib": 98.65
+        },
+        {
+          "label": "music",
+          "size_mib": 66.61
+        },
+        {
+          "label": "audio",
+          "size_mib": 56.08
+        },
+        {
+          "label": "old_decorations",
+          "size_mib": 50.21
+        },
+        {
+          "label": "startcontent",
+          "size_mib": 27.04
+        },
+        {
+          "label": "eventcalendar16",
+          "size_mib": 26.77
+        },
+        {
+          "label": "avatars",
+          "size_mib": 24.59
+        },
+        {
+          "label": "season14",
+          "size_mib": 21.0
+        },
+        {
+          "label": "new_home_location",
+          "size_mib": 20.48
+        },
+        {
+          "label": "eventcalendar14",
+          "size_mib": 19.56
+        },
+        {
+          "label": "animations_character",
+          "size_mib": 19.38
+        },
+        {
+          "label": "contentsync",
+          "size_mib": 19.08
+        }
+      ],
+      "sample_bundle_file_signature": "UnityFS"
+    }
+  }
+}

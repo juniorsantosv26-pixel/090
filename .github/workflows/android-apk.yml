@@ -1,0 +1,103 @@
+name: AFTERFALL Android APK 0.3.1 (Godot 4.5.2)
+
+on:
+  push:
+    branches: ['main', 'afterfall-android-build']
+    paths:
+      - 'project.godot'
+      - 'export_presets.cfg'
+      - 'scenes/**'
+      - 'scripts/**'
+      - 'assets/**'
+      - 'tests/**'
+      - '.github/workflows/android-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Configure required Android SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager 'platform-tools' 'build-tools;35.0.0' 'platforms;android-35'
+      - name: Download and install matching Godot editor and export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION=4.5.2
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/${VERSION}-stable/Godot_v${VERSION}-stable_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 "/tmp/Godot_v${VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/${VERSION}-stable/Godot_v${VERSION}-stable_export_templates.tpz" -o /tmp/export_templates.tpz
+          mkdir -p /tmp/godot_templates
+          unzip -q /tmp/export_templates.tpz -d /tmp/godot_templates
+          mkdir -p "$HOME/.local/share/godot/export_templates/${VERSION}.stable"
+          cp -a /tmp/godot_templates/templates/. "$HOME/.local/share/godot/export_templates/${VERSION}.stable/"
+          godot --headless --version
+      - name: Configure Android signing for temporary test APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.android" "$HOME/.config/godot" build
+          keytool -genkeypair -v -keystore "$HOME/.android/debug.keystore" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Afterfall,C=BR" -noprompt
+          cat > "$HOME/.config/godot/editor_settings-4.tres" <<EOT
+          [gd_resource type="EditorSettings" format=3]
+
+          [resource]
+          export/android/java_sdk_path = "${JAVA_HOME}"
+          export/android/android_sdk_path = "${ANDROID_HOME}"
+          EOT
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PATH=$HOME/.android/debug.keystore" >> "$GITHUB_ENV"
+          echo 'GODOT_ANDROID_KEYSTORE_DEBUG_USER=androiddebugkey' >> "$GITHUB_ENV"
+          echo 'GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD=android' >> "$GITHUB_ENV"
+      - name: Validate generated project and all resources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tests/build_preflight.py
+          python3 tests/integrity_check.py
+          godot --headless --editor --path . --import --quit > build/import.log 2>&1 || { cat build/import.log; exit 1; }
+          cat build/import.log
+          if grep -Ei '(SCRIPT ERROR|Parse Error|Failed loading resource)' build/import.log; then
+            echo 'Erro de importação encontrado no log.' >&2
+            exit 1
+          fi
+          godot --headless --path . --script res://tests/runtime_smoke.gd > build/smoke.log 2>&1 || { cat build/smoke.log; exit 1; }
+          cat build/smoke.log
+          grep -q 'PASS: AFTERFALL 0.3.1 scene loads' build/smoke.log || { echo 'Smoke test não confirmou inicialização.' >&2; exit 1; }
+          if grep -Ei '(SCRIPT ERROR|Parse Error|Failed loading resource)' build/smoke.log; then
+            echo 'Erro de execução encontrado no log.' >&2
+            exit 1
+          fi
+      - name: Export signed debug APK for arm64 Android
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --export-debug Android build/AFTERFALL-0.3.1-debug.apk > build/export.log 2>&1 || { cat build/export.log; exit 1; }
+          test -s build/AFTERFALL-0.3.1-debug.apk
+          unzip -t build/AFTERFALL-0.3.1-debug.apk | tail -n 2
+          unzip -l build/AFTERFALL-0.3.1-debug.apk | grep -E 'lib/arm64-v8a/.+\.so' > build/arm64-libraries.log
+          cat build/arm64-libraries.log
+          echo "APK sha256:"
+          sha256sum build/AFTERFALL-0.3.1-debug.apk
+      - name: Upload installable APK and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AFTERFALL-0.3.1-APK-Android-arm64
+          path: |
+            build/*.apk
+            build/*.log
+          if-no-files-found: warn
+          retention-days: 14
