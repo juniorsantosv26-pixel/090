@@ -80,6 +80,13 @@ jobs:
             echo 'Erro de execução encontrado no log.' >&2
             exit 1
           fi
+      - name: Test player touchscreen movement
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/touch_smoke.gd > build/touch.log 2>&1 || { cat build/touch.log; exit 1; }
+          cat build/touch.log
+          grep -q 'PASS: touchscreen joystick moves player' build/touch.log
       - name: Export signed debug APK for arm64 Android
         shell: bash
         run: |

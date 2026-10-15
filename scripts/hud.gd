@@ -8,6 +8,7 @@ var _stick_value: Vector2 = Vector2.ZERO
 var _run_pointer: int = -1
 var _mouse_joystick: bool = false
 var _run_active: bool = false
+var _touch_events: int = 0
 
 func _ready() -> void:
     world = get_parent().get_parent() as Node3D
@@ -35,9 +36,11 @@ func _run_center() -> Vector2:
     return Vector2(size.x - 270.0, size.y - 205.0)
 
 func _stick_center() -> Vector2:
-    return Vector2(145.0, size.y - 140.0)
+    return Vector2(145.0, get_viewport_rect().size.y - 140.0)
 
 func _input(event: InputEvent) -> void:
+    if event is InputEventScreenTouch or event is InputEventScreenDrag:
+        _touch_events += 1
     if event is InputEventScreenTouch:
         var finger := event as InputEventScreenTouch
         _pointer(finger.index, finger.position, finger.pressed)
@@ -64,11 +67,11 @@ func _pointer(pointer: int, pos: Vector2, pressed: bool) -> void:
         elif pos.distance_to(_run_center()) < 68.0:
             _run_pointer = pointer
             _run_active = true
-        elif pos.x < size.x * 0.45 and _stick_index == -1:
+        elif pos.x < get_viewport_rect().size.x * 0.48 and _stick_index == -1:
             _stick_index = pointer
-            _stick_start = pos
+            _stick_start = _stick_center()
             _stick_pos = pos
-            _stick_value = Vector2.ZERO
+            _update_stick(pos)
     else:
         if pointer == _stick_index:
             _stick_index = -1
@@ -100,6 +103,7 @@ func _draw() -> void:
     _circle_button(_interact_center(), 56.0, Color(0.12, 0.35, 0.26, 0.76), "COLETAR")
     _circle_button(_run_center(), 49.0, Color(0.27, 0.27, 0.31, 0.75), "CORRER")
     _circle_button(_dodge_center(), 53.0, Color(0.18, 0.30, 0.37, 0.78), "ESQUIVA")
+    _line("FPS %d | TOUCH %d | MOVE %.2f %.2f" % [roundi(Engine.get_frames_per_second()), _touch_events, _stick_value.x, _stick_value.y], Vector2(35, 170), 16, Color.WHITE)
     if world == null:
         return
     var width: float = minf(size.x * 0.56, 735.0)
